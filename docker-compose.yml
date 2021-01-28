@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./backend/:/src
+      - ./backend/:/backend
     ports:
       - "8000:8000"
     
@@ -17,4 +17,6 @@ services:
     image: postgres:latest
     container_name: postgres01 
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
