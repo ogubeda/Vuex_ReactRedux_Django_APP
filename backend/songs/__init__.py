@@ -1,4 +1,4 @@
-from django.songs import AppConfig
+from django.apps import AppConfig
 
 
 class SongsAppConfig(AppConfig):

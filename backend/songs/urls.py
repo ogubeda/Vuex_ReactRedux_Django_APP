@@ -3,8 +3,7 @@ from django.conf.urls import include, url
 from rest_framework.routers import DefaultRouter
 
 from .views import (
-    SongViewSet, SongsFavoriteAPIView, SongsFeedAPIView,
-    CommentsListCreateAPIView, CommentsDestroyAPIView, TagListAPIView
+    SongViewSet
 )
 
 app_name = 'songs'
@@ -15,5 +14,4 @@ router.register(r'songs', SongViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
 
-    url(r'^tags/?$', TagListAPIView.as_view()),
 ]

@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'django_extensions',
+
 
     'songs',
     'core',
@@ -132,3 +135,11 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
 )
+
+
+REST_FRAMEWORK = {
+    'NON_FIELD_ERRORS_KEY': 'error',
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20,
+}
