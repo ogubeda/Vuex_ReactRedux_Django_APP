@@ -17,6 +17,8 @@ class SongViewSet(mixins.CreateModelMixin,
     lookup_field = 'slug'
     permission_classes = (AllowAny,)
     serializer_class = SongSerializer
+    queryset = Song.objects.all()
+
 
     def get_queryset(self):
         queryset = self.queryset
