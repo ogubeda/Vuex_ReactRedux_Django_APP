@@ -21,47 +21,21 @@ class SongViewSet(mixins.CreateModelMixin,
     def get_queryset(self):
         queryset = self.queryset
 
-        # author = self.request.query_params.get('author', None)
-        # if author is not None:
-        #     queryset = queryset.filter(author__user__username=author)
-
-        tag = self.request.query_params.get('tag', None)
-        if tag is not None:
-            queryset = queryset.filter(tags__tag=tag)
-
-        # favorited_by = self.request.query_params.get('favorited', None)
-        # if favorited_by is not None:
-        #     queryset = queryset.filter(
-        #         favorited_by__user__username=favorited_by
-        #     )
-
         return queryset
 
-    def create(self, request):
-        serializer_context = {
-            'request': request
-        }
-        serializer_data = request.data.get('song', {})
-
-        serializer = self.serializer_class(
-        data=serializer_data, context=serializer_context
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 
     def list(self, request):
-        serializer_context = {'request': request}
-        page = self.paginate_queryset(self.get_queryset())
+        serializer_data = self.get_queryset()
+        serializer = self.serializer_class(serializer_data, many=True)
+        
+        print('*********** serializer.data ************')
+        print(serializer.data)
+        return Response({
+            'posts': serializer.data
+        }, status=status.HTTP_200_OK)
 
-        serializer = self.serializer_class(
-            page,
-            context=serializer_context,
-            many=True
-        )
-
-        return self.get_paginated_response(serializer.data)
+        return self.serializer
 
     def retrieve(self, request, slug):
         serializer_context = {'request': request}

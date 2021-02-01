@@ -138,8 +138,7 @@ CORS_ORIGIN_WHITELIST = (
 
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'core.exceptions.core_exception_handler',
     'NON_FIELD_ERRORS_KEY': 'error',
 
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 20,
 }

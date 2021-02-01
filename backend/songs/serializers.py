@@ -5,7 +5,6 @@ from .models import Song
 
 
 class SongSerializer(serializers.ModelSerializer):
-    description = serializers.CharField(required=False)
     slug = serializers.SlugField(required=False)
 
     # tagList = TagRelatedField(many=True, required=False, source='tags')
@@ -21,22 +20,17 @@ class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = (
-            'title',
-            'release_date',
-            'genre',
-            'duration',
-            'album',
-            'slug',
-            'createdAt',
             'updatedAt',
+            'slug',
+            'title',
+            'releaseDate',
+            'genre',
+            'createdAt',
+            'duration',
+            'album'
         )
 
-    def create(self, validated_data):
-        # tags = validated_data.pop('tags', [])
 
-        
-
-        return article
 
     def get_created_at(self, instance):
         return instance.created_at.isoformat()
