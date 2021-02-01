@@ -22,3 +22,14 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+  vue:
+    build: ./frontend/vue
+    container_name: vue_container
+    ports:
+      - "8080:8080"
+    command: npm run serve
+    volumes:
+      - "./frontend/vue:/frontend/vue"
+

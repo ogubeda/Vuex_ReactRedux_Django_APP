@@ -12,7 +12,7 @@ import axios from 'axios';
 export default defineComponent({
     name: "Home",
     created: function() {
-      axios.get('https://jsonplaceholder.typicode.com/users')
+      axios.get('http://localhost:8000/api/songs')
       .then(res => {
         console.log(res);
       })
