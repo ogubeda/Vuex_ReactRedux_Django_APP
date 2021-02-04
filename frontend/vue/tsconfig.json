@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/common/api.service.ts", "src/common/jwt.service.js"  ],
   "exclude": [
     "node_modules"
   ]
