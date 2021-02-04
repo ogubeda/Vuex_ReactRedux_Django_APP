@@ -12,6 +12,7 @@ from .serializers import SongSerializer
 class SongViewSet(mixins.CreateModelMixin, 
                      mixins.ListModelMixin,
                      mixins.RetrieveModelMixin,
+                     generics.DestroyAPIView,
                      viewsets.GenericViewSet):
 
     lookup_field = 'slug'
@@ -26,6 +27,19 @@ class SongViewSet(mixins.CreateModelMixin,
         return queryset
 
     
+    def create(self, request):
+        serializer_context = {
+            'request': request
+        }
+        serializer_data = request.data.get('song', {})
+
+        serializer = self.serializer_class(
+        data=serializer_data, context=serializer_context
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def list(self, request):
         serializer_data = self.get_queryset()
@@ -34,7 +48,7 @@ class SongViewSet(mixins.CreateModelMixin,
         print('*********** serializer.data ************')
         print(serializer.data)
         return Response({
-            'posts': serializer.data
+            'songs': serializer.data
         }, status=status.HTTP_200_OK)
 
         return self.serializer
@@ -57,7 +71,7 @@ class SongViewSet(mixins.CreateModelMixin,
 
     def update(self, request, slug):
         serializer_context = {'request': request}
-
+        print('*********** serializer.data ************')
         try:
             serializer_instance = self.queryset.get(slug=slug)
         except Song.DoesNotExist:
