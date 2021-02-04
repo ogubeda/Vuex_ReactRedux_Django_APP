@@ -1,2 +1,15 @@
 sudo docker exec -it usersRestAPI01 sh
 
+****************************************MODEL
+
+{
+    "song": {
+    "slug": "America-nnn",
+    "title": "America",
+    "releaseDate": 2019,
+    "genre": "Metal",
+    "duration": 123,
+    "album": "Ramstein"
+    }
+    
+}
