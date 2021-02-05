@@ -12,7 +12,7 @@ class SongService {
   deleteSong(song: Song) {
     return axios.delete(`${api}/songs/${song.slug}`);
   }
-  getSonges() {
+  getSongs() {
     return axios.get<Song[]>(`${api}/songs`);
   }
   addSong(song: Song) {

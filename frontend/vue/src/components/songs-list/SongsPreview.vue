@@ -5,6 +5,7 @@
 <script lang = "ts">
 
 import { defineComponent, ref } from 'vue';
+import { Song } from '../../models/Song';
 
 export default defineComponent({
     name: "SongsPreview",
