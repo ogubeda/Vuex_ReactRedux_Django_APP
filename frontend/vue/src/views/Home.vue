@@ -1,7 +1,7 @@
 <template>
   <section>
       <h1>Home</h1>
-      <SongsPreview />
+      <SongsList />
   </section>
 </template>
 
@@ -9,13 +9,13 @@
 import { defineComponent } from 'vue'
 import axios from 'axios';
 
-import SongsPreview from '../components/songs-list/SongsPreview';
+import SongsList from '../components/songs-list/SongsList';
 
 
 export default defineComponent({
     name: "Home",
     components: {
-      SongsPreview
+      SongsList
     },
     created: function() {
       axios.get('http://localhost:8000/api/songs')
