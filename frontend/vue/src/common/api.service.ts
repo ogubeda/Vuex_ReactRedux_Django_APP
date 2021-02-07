@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { Song } from '../models/Song';
+import API_URL from './config'
 
 const api = 'api';
 
@@ -10,16 +11,16 @@ class SongService {
   }
 
   deleteSong(song: Song) {
-    return axios.delete(`${api}/songs/${song.slug}`);
+    return axios.delete(`${API_URL}/songs/${song.slug}`);
   }
   getSongs() {
-    return axios.get<Song[]>(`${api}/songs`);
+    return axios.get<Song[]>(`${API_URL}/songs`);
   }
   addSong(song: Song) {
-    return axios.post(`${api}/songs/`, { song });
+    return axios.post(`${API_URL}/songs/`, { song });
   }
   updateSong(song: Song) {
-    return axios.put(`${api}/songs/${song.slug}`, { song });
+    return axios.put(`${API_URL}/songs/${song.slug}`, { song });
   }
 }
 

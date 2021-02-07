@@ -2,27 +2,27 @@ import { songService } from "@/common/api.service";
 import { ActionsType } from "./actions.type";
 import { MutationsType } from "./mutations.type";
 
-export interface state {
-  songs: any[],
-  isLoading: boolean,
-  songsCount: number
+export interface State {
+  Songs: any[];
+  IsLoading: boolean;
+  SongsCount: number;
 }
 
-export const initialState: state = {
-  songs: [],
-  isLoading: false,
-  songsCount: 0
+export const initialState: State = {
+  Songs: [],
+  IsLoading: false,
+  SongsCount: 0
 }
 
 const getters = {
   songsCount: (initialState: any) => {
-    return initialState.songsCount;
+    return initialState.SongsCount;
   },
   songs: (initialState: any) => {
-    return initialState.songs;
+    return initialState.Songs;
   },
-  isLoading: (intialState: any) => {
-    return initialState.isLoading;
+  isLoading: (initialState: any) => {
+    return initialState.IsLoading;
   }
 };
 
@@ -42,15 +42,15 @@ const actions = {
 /* eslint no-param-reassign: ["error", { "props": false }] */
 const mutations = {
   [MutationsType.FETCH_START](state: any) {
-    state.isLoading = true;
+    state.IsLoading = true;
   },
-  [MutationsType.FETCH_END](state: any, { articles, articlesCount }: any) {
-    state.articles = articles;
-    state.articlesCount = articlesCount;
+  [MutationsType.FETCH_END](state: any, { songs, songsCount }: any) {
+    state.Songs = songs;
+    state.SongsCount = songsCount;
     state.isLoading = false;
   },
   [MutationsType.UPDATE_SONG_IN_LIST](state: any, data: any) {
-    state.songs = state.songs.map((song: any) => {
+    state.Songs = state.Songs.map((song: any) => {
       if (song.slug !== data.slug) {
         return song;
       }
