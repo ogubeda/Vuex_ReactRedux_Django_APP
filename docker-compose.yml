@@ -4,7 +4,7 @@ services:
   web:
     build: ./backend
     container_name: usersRestAPI01
-    command: bash -c "export API_AUTHENTICATION="False" && python3 manage.py makemigrations && python3 manage.py migrate && gunicorn usersRestAPI.wsgi -b 0.0.0.0:8000"
+    # command: bash -c "export API_AUTHENTICATION="False" && python3 manage.py makemigrations && python3 manage.py migrate && gunicorn usersRestAPI.wsgi -b 0.0.0.0:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
     depends_on:
       - db

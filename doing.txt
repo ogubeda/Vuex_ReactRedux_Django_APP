@@ -4,12 +4,11 @@ sudo docker exec -it usersRestAPI01 sh
 
 {
     "song": {
-    "slug": "America-nnn",
-    "title": "America",
-    "releaseDate": 2019,
-    "genre": "Metal",
+    "title": "Obey",
+    "releaseDate": 2020,
+    "genre": "Metalcore",
     "duration": 123,
-    "album": "Ramstein"
+    "album": "Horror"
     }
     
 }

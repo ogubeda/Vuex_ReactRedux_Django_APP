@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'songs',
     'core',
+    # 'authentication'
 
 ]
 
@@ -136,7 +137,10 @@ STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
+    'http://0.0.0.0:8080'
 )
+
+# AUTH_USER_MODEL = 'authentication.User'
 
 
 REST_FRAMEWORK = {

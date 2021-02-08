@@ -27,4 +27,7 @@ export default defineComponent({
 </script>
 
 <style>
+html{
+  color:white;
+}
 </style>

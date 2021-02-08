@@ -2,7 +2,7 @@
 <div class = "song_flex">
     <div class="inSong">
       <div class="inSongheader">
-        <img src="https://pbs.twimg.com/profile_images/728677222794592257/u-_opbnI.jpg" alt="icon song">
+        <img src="https://i.pinimg.com/736x/e1/3e/e6/e13ee62ee59365cbfa045b79f9911f6e.jpg" alt="icon song">
       </div>
       <div class="inSongbody">
         <div class="songTitle">{{song.title}}</div>
@@ -34,7 +34,7 @@ export default defineComponent({
   font-weight: bold;
 }
 .songAlbum{
-  color: lightgray;
+  color: gray;
   font-weight: italic;
 
 }
@@ -46,6 +46,7 @@ img{
 
 .inSongbody{
   font-size: 15px;
+  margin-left: 10px;
 }
 .inSongheader{
   text-align: center;
