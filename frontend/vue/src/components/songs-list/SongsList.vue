@@ -1,6 +1,6 @@
 <template>
   <div class="songList">
-    <SongsPreview v-for="(song, index) in songs" :song="song" :key="index" />
+    <SongsPreview v-for="(song, index) in songs" :song="song" :key="song.title + index" />
   </div>
 </template>
 
@@ -19,8 +19,8 @@ export default defineComponent({
     this.$store.dispatch(ActionsType.FETCH_SONGS);
   },
   computed: {
-    ...mapGetters(["songs"]),
-  },
+    ...mapGetters(["songs"])
+  }
 });
 </script>
 
