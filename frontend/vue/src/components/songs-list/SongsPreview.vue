@@ -1,5 +1,5 @@
 <template>
-<div class = "song_flex">
+<div class= "song_flex">
     <div class="inSong">
       <div class="inSongheader">
         <img src="https://i.pinimg.com/736x/e1/3e/e6/e13ee62ee59365cbfa045b79f9911f6e.jpg" alt="icon song">
@@ -7,6 +7,7 @@
       <div class="inSongbody">
         <div class="songTitle">{{song.title}}</div>
         <div class="songAlbum">{{song.album}}</div>
+
       </div>
   </div>
 </div>

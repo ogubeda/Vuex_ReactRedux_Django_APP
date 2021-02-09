@@ -21,6 +21,9 @@ const getters = {
   songs: (initialState: any) => {
     return initialState.Songs;
   },
+  song: (initialState: any) => {
+    return initialState.Songs;
+  },
   isLoading: (initialState: any) => {
     return initialState.IsLoading;
   }
