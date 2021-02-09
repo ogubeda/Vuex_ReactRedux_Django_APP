@@ -8,6 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('songs', '__first__'),
         ('profiles', '0002_profile_follows'),
     ]
 
