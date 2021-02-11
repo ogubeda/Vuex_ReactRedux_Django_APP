@@ -57,6 +57,9 @@ class SongService {
   getSongs() {
     return axios.get<Song[]>(`${API_URL}/songs`);
   }
+  getSong(slug: string) {
+    return axios.get<Song>(`${API_URL}/songs/${slug}`);
+  }
   addSong(song: Song) {
     return axios.post(`${API_URL}/songs/`, { song });
   }

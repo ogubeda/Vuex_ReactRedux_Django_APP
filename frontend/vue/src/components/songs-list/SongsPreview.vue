@@ -1,6 +1,6 @@
 <template>
   <div class= "song_flex">
-    <router-link :to="'/api/songs/'+ song.slug" class="preview-link"> 
+    <router-link :to="'/songs/'+ song.slug" class="preview-link"> 
       <div class="inSong">
         <div class="inSongheader">
           <img src="https://i.pinimg.com/736x/e1/3e/e6/e13ee62ee59365cbfa045b79f9911f6e.jpg" alt="icon song">
