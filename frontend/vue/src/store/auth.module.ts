@@ -1,4 +1,4 @@
-import  ApiService  from "@/common/api.service";
+import { apiService }  from "@/common/api.service";
 import  JwtService  from "@/common/jwt.service.ts";
 import { ActionsType } from "./actions.type";
 import { MutationsType } from "./mutations.type";
@@ -27,8 +27,8 @@ const getters = {
 const actions = {
   [ActionsType.LOGIN](context: any, credentials: any) {
     return new Promise(resolve => {
-      ApiService.post("users/login", { user: credentials })
-        .then(({ data }) => {
+      apiService.post("users/login", { user: credentials })
+        .then(({ data }: any) => {
           context.commit(MutationsType.SET_AUTH, data.user);
           resolve(data);
         })
@@ -42,8 +42,8 @@ const actions = {
   },
   [ActionsType.REGISTER](context: any, credentials: any) {
     return new Promise((resolve, reject) => {
-      ApiService.post("users", { user: credentials })
-        .then(({ data }) => {
+      apiService.post("users", { user: credentials })
+        .then(({ data }: any) => {
           context.commit(MutationsType.SET_AUTH, data.user);
           resolve(data);
         })
@@ -55,9 +55,9 @@ const actions = {
   },
   [ActionsType.CHECK_AUTH](context: any) {
     if (JwtService.getToken()) {
-      ApiService.setHeader();
-      ApiService.get("user")
-        .then(({ data }) => {
+      apiService.setHeader();
+      apiService.get("user")
+        .then(({ data }: any) => {
           context.commit(MutationsType.SET_AUTH, data.user);
         })
         .catch(({ response }) => {
@@ -80,7 +80,7 @@ const actions = {
       user.password = password;
     }
 
-    return ApiService.put("user", user).then(({ data }) => {
+    return apiService.put("user", user).then(({ data }: any) => {
       context.commit(MutationsType.SET_AUTH, data.user);
       return data;
     });

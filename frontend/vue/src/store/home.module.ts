@@ -31,6 +31,7 @@ const actions = {
     commit(MutationsType.FETCH_START);
     return songService.getSongs()
       .then(({ data }: any) => {
+        console.log(data);
         commit(MutationsType.FETCH_END, data);
       })
       .catch((error: any) => {
