@@ -51,8 +51,9 @@ class ApiService {
   }
 }
 
+export const apiService = new ApiService();
+
 class SongService {
-  ApiService = new ApiService();
   constructor() {
     console.log('creating new instance of song.service');
   }
@@ -61,8 +62,7 @@ class SongService {
     return axios.delete(`${API_URL}/songs/${song.slug}`);
   }
   getSongs() {
-    return axios.get<Song[]>(`${API_URL}/songs`);
-    // return this.ApiService.get('songs');
+    return apiService.get('songs');
   }
   getSong(slug: string) {
     return axios.get<Song>(`${API_URL}/songs/${slug}`);
@@ -77,4 +77,3 @@ class SongService {
 
 // Export a singleton instance in the global namespace
 export const songService = new SongService();
-export const apiService = new ApiService();
