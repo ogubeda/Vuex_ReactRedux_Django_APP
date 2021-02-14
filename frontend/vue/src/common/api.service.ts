@@ -33,7 +33,8 @@ class ApiService {
   }
 
   post(resource: string, params: any) {
-    return axios.post(`${resource}`, params);
+    const url = `${API_URL}/${resource}`;
+    return axios.post(url, params);
   }
 
   update(resource: string, slug: string, params: any) {
