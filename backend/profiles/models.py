@@ -58,11 +58,11 @@ class Profile(TimestampedModel):
         return self.followed_by.filter(pk=profile.pk).exists()
 
     def favorite(self, song):
-        """Favorite `article` if we haven't already favorited it."""
+        """Favorite `song` if we haven't already favorited it."""
         self.favorites.add(song)
 
     def unfavorite(self, song):
-        """Unfavorite `article` if we've already favorited it."""
+        """Unfavorite `song` if we've already favorited it."""
         self.favorites.remove(song)
 
     def has_favorited(self, article):
