@@ -90,7 +90,39 @@ class SongViewSet(mixins.CreateModelMixin,
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class SongsFavoriteAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = SongSerializer
 
+    def delete(self, request, song_slug=None):
+        profile = self.request.user.profile
+        serializer_context = {'request': request}
+
+        try:
+            song = Song.objects.get(slug=song_slug)
+        except Song.DoesNotExist:
+            raise NotFound('A Song with this slug was not found.')
+
+        profile.unfavorite(song)
+
+        serializer = self.serializer_class(song, context=serializer_context)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, song_slug=None):
+        profile = self.request.user.profile
+        serializer_context = {'request': request}
+
+        try:
+            song = Song.objects.get(slug=song_slug)
+        except Song.DoesNotExist:
+            raise NotFound('A Song with this slug was not found.')
+
+        profile.favorite(song)
+
+        serializer = self.serializer_class(song, context=serializer_context)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 
