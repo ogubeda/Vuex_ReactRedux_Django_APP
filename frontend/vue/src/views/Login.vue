@@ -15,6 +15,7 @@
                 v-model="email"
                 placeholder="Email"
               />
+              <br>
               <input
                 class="form-control form-control-lg"
                 type="password"
@@ -26,7 +27,7 @@
               Need an account?
             </router-link>
             </p>
-            <button class="btn btn-lg btn-primary pull-xs-right">
+            <button class="btn btn-lg btn-primary pull-xs-right default_button">
               Sign in
             </button>
           </form>
@@ -76,13 +77,28 @@ export default {
 input{
   background-color: #373737;
   color: white;
+  border: none;
+  padding: 15px 10px;
+  width: 350px;
+  border-radius: 4px;
 }
-button{
-  background-color: black;
-  border-radius: 50%;
-  color: gray;
-  width: 100px;
-  height: 50px;
+.default_button {
+  background-color: #fa2d48;
+  border-radius: 5px;
+  border: none;
+  color: rgb(214, 214, 214);
+  font-size: 18px;
+  padding: 10px 45px;
+}
+
+.default_button:hover {
+  background-color: #fa2d48d7;
+}
+
+.default_button:active {
+    background-color: #fa2d48e5;
+    border: none;
+    outline-style: none;
 }
 .link{
   color: gray;
