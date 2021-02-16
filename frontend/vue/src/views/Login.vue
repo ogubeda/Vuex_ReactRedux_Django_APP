@@ -91,6 +91,14 @@ input{
   padding: 10px 45px;
 }
 
+.default_button:focus {
+  outline-style: none;
+}
+
+input:focus {
+  outline-style: none;
+}
+
 .default_button:hover {
   background-color: #fa2d48d7;
 }

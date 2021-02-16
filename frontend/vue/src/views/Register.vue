@@ -31,7 +31,7 @@
               Have an account?
             </router-link>
             </p>
-            <button class="btn btn-lg btn-primary pull-xs-right">
+            <button class="btn btn-lg btn-primary pull-xs-right default_button">
               Sign up
             </button>
           </form>
@@ -93,13 +93,6 @@ input{
   background-color: #373737;
   color: white;
   margin: 1em;
-}
-button{
-  background-color: black;
-  border-radius: 50%;
-  color: gray;
-  width: 100px;
-  height: 50px;
 }
 .link{
   color: gray;
