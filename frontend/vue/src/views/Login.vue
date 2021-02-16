@@ -74,30 +74,13 @@ export default {
 .form-control{
   margin: 1em
 }
-input{
-  background-color: #373737;
-  color: white;
-  border: none;
-  padding: 15px 10px;
-  width: 350px;
-  border-radius: 4px;
-}
-.default_button {
-  background-color: #fa2d48;
-  border-radius: 5px;
-  border: none;
-  color: rgb(214, 214, 214);
-  font-size: 18px;
-  padding: 10px 45px;
-}
+
 
 .default_button:focus {
   outline-style: none;
 }
 
-input:focus {
-  outline-style: none;
-}
+
 
 .default_button:hover {
   background-color: #fa2d48d7;

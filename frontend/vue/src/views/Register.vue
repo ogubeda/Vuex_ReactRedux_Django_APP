@@ -12,13 +12,13 @@
                 type="text"
                 v-model="username"
                 placeholder="Username"
-              />
+              /><br>
               <input
                 class="form-control form-control-lg"
                 type="text"
                 v-model="email"
                 placeholder="Email"
-              />
+              /><br>
               <input
                 class="form-control form-control-lg"
                 type="password"
@@ -74,26 +74,18 @@ export default {
 
 <style>
 .form-control{
-  margin-right: 4em;
+  margin: 1em
 }
-.inputs{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
 .container-flex{
-   display: flex;
+  display: flex;
+  flex-direction: column  ;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-input{
-  background-color: #373737;
-  color: white;
-  margin: 1em;
-}
 .link{
   color: gray;
   text-decoration: none;

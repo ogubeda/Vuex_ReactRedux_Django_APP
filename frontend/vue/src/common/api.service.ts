@@ -37,6 +37,11 @@ class ApiService {
     return axios.post(url, params);
   }
 
+  post2(resource: string) {
+    const url = `${API_URL}/${resource}`;
+    return axios.post(url);
+  }
+
   update(resource: string, slug: string, params: any) {
     return axios.put(`${resource}/${slug}`, params);
   }
@@ -78,3 +83,18 @@ class SongService {
 
 // Export a singleton instance in the global namespace
 export const songService = new SongService();
+
+class FavoriteService {
+  constructor() {
+    console.log('creating new instance of favorite.service');
+  }
+  add(slug: string) {
+    return apiService.post2(`songs/${slug}/favorite`);
+  }
+
+  remove(slug: string) {
+    return apiService.delete(`songs/${slug}/favorite`);
+  }
+}
+
+export const favoriteService = new FavoriteService();
