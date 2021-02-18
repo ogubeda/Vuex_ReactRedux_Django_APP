@@ -1,6 +1,7 @@
 import { songService } from "@/common/api.service";
 import { ActionsType } from "./actions.type";
 import { MutationsType } from "./mutations.type";
+import { Song } from '../models/Song'
 
 export interface State {
   Songs: any[];
@@ -51,11 +52,11 @@ const mutations = {
     state.isLoading = false;
   },
   [MutationsType.UPDATE_SONG_IN_LIST](state: any, data: any) {
-    state.Songs = state.Songs.map((song: any) => {
+    state.Songs = state.Songs.map((song: Song) => {
       if (song.slug !== data.slug) {
         return song;
       }
-      // article.favorited = data.favorited;
+      song.favorited = data.favorited;
       // article.favoritesCount = data.favoritesCount;
       return song;
     });

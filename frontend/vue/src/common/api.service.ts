@@ -87,6 +87,7 @@ export const songService = new SongService();
 class FavoriteService {
   constructor() {
     console.log('creating new instance of favorite.service');
+    apiService.setHeader();
   }
   add(slug: string) {
     return apiService.post2(`songs/${slug}/favorite`);

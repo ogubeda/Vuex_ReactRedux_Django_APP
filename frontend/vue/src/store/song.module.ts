@@ -28,14 +28,14 @@ export const actions = {
   },
   async [ActionsType.FAVORITE_ADD](context: any, slug: string) {
     const { data } = await favoriteService.add(slug);
-    context.commit(MutationsType.UPDATE_SONG_IN_LIST, data.song, { root: true });
-    context.commit(MutationsType.SET_SONG, data.song);
+    context.commit(MutationsType.UPDATE_SONG_IN_LIST, data, { root: true });
+    context.commit(MutationsType.SET_SONG, data);
   },
   async [ActionsType.FAVORITE_REMOVE](context: any, slug: string) {
     const { data } = await favoriteService.remove(slug);
     // Update list as well. This allows us to favorite an article in the Home view.
-    context.commit(MutationsType.UPDATE_SONG_IN_LIST, data.song, { root: true });
-    context.commit(MutationsType.SET_SONG, data.song);
+    context.commit(MutationsType.UPDATE_SONG_IN_LIST, data, { root: true });
+    context.commit(MutationsType.SET_SONG, data);
   },
 };
 
