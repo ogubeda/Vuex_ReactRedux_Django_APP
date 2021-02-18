@@ -24,6 +24,12 @@ class SongViewSet(mixins.CreateModelMixin,
     def get_queryset(self):
         queryset = self.queryset
 
+        favorited_by = self.request.query_params.get('favorited', None)
+        if favorited_by is not None:
+            queryset = queryset.filter(
+                favorited_by__user__username=favorited_by
+            )
+            
         return queryset
 
     
