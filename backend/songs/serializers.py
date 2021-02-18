@@ -14,6 +14,7 @@ class SongSerializer(serializers.ModelSerializer):
     # `created_at` to be called `createdAt` and `updated_at` to be `updatedAt`.
     # `serializers.SerializerMethodField` is a good way to avoid having the
     # requirements of the client leak into our API.
+    favorited = serializers.SerializerMethodField()
     createdAt = serializers.SerializerMethodField(method_name='get_created_at')
     updatedAt = serializers.SerializerMethodField(method_name='get_updated_at')
 
@@ -27,7 +28,8 @@ class SongSerializer(serializers.ModelSerializer):
             'genre',
             'createdAt',
             'duration',
-            'album'
+            'album',
+            'favorited'
         )
 
 
@@ -37,4 +39,16 @@ class SongSerializer(serializers.ModelSerializer):
 
     def get_updated_at(self, instance):
         return instance.updated_at.isoformat()
+
+    def get_favorited(self, instance):
+        request = self.context.get('request', None)
+
+        if request is None:
+            return False
+
+        # if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
+            return False
+
+        return request.user.profile.has_favorited(instance)
 
