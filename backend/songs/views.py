@@ -48,16 +48,22 @@ class SongViewSet(mixins.CreateModelMixin,
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def list(self, request):
+        serializer_context = {'request': request}
         serializer_data = self.get_queryset()
-        serializer = self.serializer_class(serializer_data, many=True)
+        # serializer = self.serializer_class(
+        #     serializer_data, many=True)
         
-        print('*********** serializer.data ************')
-        print(serializer.data)
+        serializer = self.serializer_class(
+            serializer_data,
+            context=serializer_context,
+            many = True
+        )
+
         return Response({
             'songs': serializer.data
         }, status=status.HTTP_200_OK)
 
-        return self.serializer
+        # return self.serializer
 
     def retrieve(self, request, slug):
         serializer_context = {'request': request}

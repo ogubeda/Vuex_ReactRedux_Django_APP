@@ -15,6 +15,7 @@ class SongSerializer(serializers.ModelSerializer):
     # `serializers.SerializerMethodField` is a good way to avoid having the
     # requirements of the client leak into our API.
     favorited = serializers.SerializerMethodField()
+    favoritesCount = serializers.SerializerMethodField(method_name = 'get_favorites_count')
     createdAt = serializers.SerializerMethodField(method_name='get_created_at')
     updatedAt = serializers.SerializerMethodField(method_name='get_updated_at')
 
@@ -29,7 +30,8 @@ class SongSerializer(serializers.ModelSerializer):
             'createdAt',
             'duration',
             'album',
-            'favorited'
+            'favorited',
+            'favoritesCount'
         )
 
 
@@ -51,4 +53,7 @@ class SongSerializer(serializers.ModelSerializer):
             return False
 
         return request.user.profile.has_favorited(instance)
+
+    def get_favorites_count(self, instance):
+        return instance.favorited_by.count()
 
