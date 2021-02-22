@@ -36,6 +36,7 @@ export default defineComponent({
   name: "SongsPreview",
   props: {
     song: { type: Object, required: true },
+    refresh: {type: Function, required: false}
   },
   computed: {
     ...mapGetters(["currentUser", "isAuthenticated"])
@@ -47,7 +48,11 @@ export default defineComponent({
         return;
       }
       const action = this.song.favorited ? ActionsType.FAVORITE_REMOVE : ActionsType.FAVORITE_ADD;
-      this.$store.dispatch(action, this.song.slug);
+      this.$store.dispatch(action, this.song.slug).then(() => {
+        if (this.refresh) {
+          this.refresh();
+        }
+      });
     },
   },
 });

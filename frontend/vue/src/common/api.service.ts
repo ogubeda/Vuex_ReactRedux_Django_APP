@@ -51,7 +51,7 @@ class ApiService {
   }
 
   delete(resource: string) {
-    return axios.delete(resource).catch(error => {
+    return axios.delete(`${resource}`).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   }
@@ -94,7 +94,8 @@ class FavoriteService {
   }
 
   remove(slug: string) {
-    return apiService.delete(`songs/${slug}/favorite`);
+    return axios.delete(`${API_URL}/songs/${slug}/favorite`);
+    // return apiService.delete(`songs/${slug}/favorite`);
   }
 }
 

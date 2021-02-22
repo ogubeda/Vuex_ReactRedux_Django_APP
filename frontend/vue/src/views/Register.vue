@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     ...mapState({
-      errors: state => state.auth.errors
+      errors: state => console.log(state)
     })
   },
   methods: {
