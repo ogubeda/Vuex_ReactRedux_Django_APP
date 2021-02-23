@@ -22,11 +22,11 @@ It's a web application made with Vuex, Postgres and Django Rest Framework.
 
 ### Frontend
 - Vue 3.0 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></code>
-- Vuex 4.0 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vuex/vuex.png"></code>
+- Vuex 4.0 <code><img height="20" src="https://raw.githubusercontent.com/justintaddei/v-shared-element/assets/logo.png"></code>
 - TypeScript <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
 
 ### Databases 
-- Postgres
+- Postgres <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgres/postgres.png"></code>
 
 ### Libraries
 - JWT
