@@ -21,6 +21,9 @@ const getters = {
   },
   isAuthenticated(state: State) {
     return state.IsAuthenticated;
+  },
+  errors(state: State) {
+    return state.Errors;
   }
 };
 

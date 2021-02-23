@@ -4,7 +4,7 @@
         <div class="container">
           <h1 class="text-xs-center">Sign in</h1>
           <ul v-if="errors" class="error-messages">
-            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ filter(v, error) }}</li>
+            <li v-for="(v, k) in errors" :key="k">{{ k }}: {{v.join(" ")}}</li>
           </ul>
           <h3>Sign in with your Email</h3>
           <p>You will be signed in to PlayIt</p>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { ActionsType } from "@/store/actions.type";
 
 export default {
@@ -56,14 +56,16 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      errors: state => state.auth.errors
-    })
+    ...mapGetters(["errors"])
   }
 };
 </script>
 
 <style>
+.error-messages {
+  list-style: none;
+  color: red;
+}
 .container-flex{
   display: flex;
   flex-wrap: nowrap;

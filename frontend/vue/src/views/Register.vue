@@ -3,7 +3,7 @@
     <div class="container-flex">
           <h1 class="text-xs-center">Sign up</h1>
           <ul v-if="errors" class="error-messages">
-            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ filter(v, error) }}</li>
+            <li v-for="(v, k) in errors" :key="k">{{ k }}: {{v.join(" ")}}</li>
           </ul>
           <form @submit.prevent="onSubmit">
             <div class="inputs">
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { ActionsType } from "@/store/actions.type";
 
 export default {
@@ -53,9 +53,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      errors: state => console.log(state)
-    })
+    ...mapGetters(["errors"])
   },
   methods: {
     onSubmit() {
@@ -73,6 +71,10 @@ export default {
 
 
 <style>
+.error-messages {
+  list-style: none;
+  color: red;
+}
 .form-control{
   margin: 1em
 }
