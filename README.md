@@ -18,7 +18,7 @@ It's a web application made with Vuex, Postgres and Django Rest Framework.
 ## Technologies
 
 ### Backend
-- Djando Rest Framework <code><img height="20" src="https://www.django-rest-framework.org/img/logo.png"></code>
+- Djando Rest Framework <code><img height="20" src="https://icon-library.com/images/django-icon/django-icon-0.jpg"></code>
 
 ### Frontend
 - Vue 3.0 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></code>
